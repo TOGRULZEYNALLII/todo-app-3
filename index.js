@@ -8,15 +8,39 @@ function addtask() {
     let li = document.createElement("li");
     li.innerHTML = input.value;
     list.appendChild(li);
-    let span = document.createElement("span");
-    span.innerHTML = "\u00d7";
-    li.appendChild(span);
+    const buttondelete = document.createElement("button");
+    li.appendChild(buttondelete);
+    buttondelete.textContent = "delete";
+    buttondelete.classList.add("buttondelete");
+
+    buttondelete.addEventListener("click", () => {
+      li.remove();
+    });
+    input.value = "";
+    const editbutton = document.createElement("button");
+    li.appendChild(editbutton);
+    editbutton.textContent = "edit";
+    editbutton.classList.add("buttondelete");
+    editbutton.addEventListener("click", () => {
+      let inputnewvalue = prompt("change the task");
+      if (prompt == "") {
+        alert("bos task dail ede bilmezsiniz");
+      } else {
+        const newText = document.createTextNode(inputnewvalue);
+        li.replaceChild(newText, li.firstChild);
+      }
+    });
+    const donebutton = document.createElement("button");
+    li.appendChild(donebutton);
+    donebutton.classList.add("buttondelete");
+    donebutton.textContent = "done";
+    donebutton.addEventListener("click", () => {
+      li.style.textDecoration = "line-through";
+    });
   }
 }
-list.addEventListener("click", function (e) {
-  if (e.target.tagName === "Li") {
-    e.target, this.classList.toggle("checked");
-  } else if (e.target.tagName === "SPAN") {
-    e.target.parentElement.remove();
+input.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    addtask();
   }
 });

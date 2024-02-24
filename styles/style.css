@@ -71,4 +71,18 @@ ul li span {
 ul li span:hover {
   background-color: red;
   border-radius: 15px;
+}
+
+.buttondelete {
+  height: 20px;
+  width: 50px;
+  margin-left: 10px;
+  background-color: orange;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.buttondelete:hover {
+  background-color: rgb(244, 192, 96);
 }/*# sourceMappingURL=style.css.map */
